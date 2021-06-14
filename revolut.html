@@ -1,0 +1,1144 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+        integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <title>A better way to handle your money _ Revolut</title>
+    <style>
+
+        * {
+            box-sizing: border-box;
+            line-height: 1.65;
+            outline: none;
+        }
+
+        html,
+        body {
+            -webkit-font-smoothing: antialiased;
+            min-height: 100%;
+            font-family: Roboto, -apple-system, "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
+        }
+
+        div {
+            display: block;
+        }
+
+        li {
+            list-style-type: none;
+        }
+
+        input,
+        textarea {
+            border: none;
+            border-radius: 0px;
+            box-shadow: none;
+            margin: 0px;
+            padding: 0px;
+            appearance: none;
+        }
+
+        .dropdown-menu {
+            border: none;
+        }
+
+        .dropdown-item {
+            color: rgb(139, 149, 158);
+            line-height: 3rem;
+
+        }
+
+        .navbar-collapse {
+
+            display: block;
+            inset: 6rem 0px 4.5rem;
+
+        }
+
+        .navbar {
+            box-shadow: rgb(25 28 31 / 4%) 0px 8px 16px, rgb(25 28 31 / 4%) 0px -1px 0px;
+        }
+
+        .btn-light {
+            background-color: #f0f0f0;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        h1 {
+            font-family: "Basier Circle", sans-serif;
+            font-weight: 600;
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            letter-spacing: -0.025em;
+            font-size: 46px;
+            line-height: 56px;
+            text-align: center;
+            color: rgb(25, 28, 31);
+        }
+
+        @media (min-width: 1024px) {
+            h1 {
+                text-align: left;
+                font-size: 75px;
+                line-height: 87px;
+            }
+        }
+
+        .homep {
+            font-size: 18px;
+            line-height: 28px;
+            margin-top: 1rem;
+            text-align: center;
+            color: rgb(139, 149, 158);
+        }
+
+        @media (min-width: 1024px) {
+            .homep {
+                margin-top: 2rem;
+                text-align: left;
+            }
+        }
+
+        .container.home .article {
+            margin: 0px;
+            padding: 5rem;
+        }
+
+        /* label {
+            width: 100%;
+            min-height: 3rem;
+            padding-top: 0.95rem;
+            padding-bottom: 0px;
+            line-height: 1.5em;
+            background: transparent;
+            color: rgb(25, 28, 31);
+            text-align: left;
+            outline: none !important;
+        } */
+
+        .btn-danger {
+            background-color: rgb(25, 28, 31);
+        }
+
+        .clockIcon {
+            width: 15px;
+        }
+
+        .account {
+            font-size: 16px;
+        }
+
+
+        .content .picture {
+            display: flex;
+            -webkit-box-align: center;
+            align-items: center;
+            -webkit-box-pack: center;
+            justify-content: center;
+            height: 100%;
+            position: relative;
+        }
+
+        .bgimg {
+            position: absolute;
+            /* z-index: -90; */
+            max-width: 350px;
+            max-height: 600px;
+        }
+
+        .homeimg {
+            display: block;
+            max-width: 350px;
+            max-height: 600px;
+            position: relative;
+            z-index: 90;
+            /* top: 50%;
+            left: 0; */
+            /* transform: translate(-67%, 0); */
+        }
+
+        .Title {
+            font-family: "Basier Circle", sans-serif;
+            font-weight: 600;
+            box-sizing: border-box;
+            margin: 0px 0px 1.5rem;
+            padding: 0px;
+            letter-spacing: -0.025em;
+            font-size: 1.5rem;
+            line-height: 1.4;
+        }
+
+        @media (min-width: 380px) {
+            .Title {
+                font-size: 1.75rem;
+            }
+        }
+
+        /* .CardText li::before {
+            content: "";
+            position: absolute;
+            top: 0.5rem;
+            left: -1.5rem;
+            width: 0.5rem;
+            height: 0.5rem;
+            border-radius: 50%;
+            background-color: rgb(139, 149, 158);
+        } */
+
+        .CardText li {
+            padding: 0.5rem 0px 0.5rem 0rem;
+            margin: 0px;
+            color: rgb(139, 149, 158);
+            position: relative;
+            list-style: none;
+        }
+
+        .StyledIcon {
+            position: absolute;
+            left: -2.3rem;
+            top: 0.81rem;
+            height: 0.85rem;
+            width: 0.85rem;
+            color: rgb(0, 117, 235);
+        }
+
+        .StyledLink {
+            display: inline-block;
+            color: rgb(0, 117, 235);
+            text-decoration: none;
+            transition: color 0.2s ease 0s;
+        }
+
+        .SvgIcon {
+            position: relative;
+            display: inline-block;
+            max-width: 100%;
+            max-height: 100%;
+            width: 21px;
+            height: 12px;
+            stroke: rgb(0, 117, 235);
+            fill: rgb(0, 117, 235);
+        }
+
+        .Bounce {
+            position: absolute;
+            padding-left: 0.625rem;
+            padding-top: 1px;
+            transition: transform 0.4s ease-out 0s;
+            transform: translate3d(0px, 0px, 0px);
+        }
+
+        @media screen and (min-width: 375px) {
+            .picture {
+                padding-left: 0.625rem;
+                padding-right: 0.625rem;
+            }
+        }
+
+        @media screen and (min-width: 520px) {
+            .picture {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .picture {
+                width: 50%;
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+        }
+
+        @media screen and (min-width: 375px) {
+            .CardText {
+                padding-left: 0.625rem;
+                padding-right: 0.625rem;
+            }
+        }
+
+        @media screen and (min-width: 520px) {
+            .CardText {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .CardText {
+                width: 41.6667%;
+                margin-top: 0px;
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+
+            }
+        }
+
+        @media screen and (min-width: 375px) {
+            .content {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        @media screen and (min-width: 520px) {
+            .content {
+                padding-left: 3rem;
+                padding-right: 3rem;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .content {
+                padding: 4rem 3rem;
+            }
+        }
+
+        .StyledLink {
+            color: rgb(0, 117, 235);
+            text-decoration: none;
+            transition: color 0.2s ease 0s;
+        }
+
+        .StyledHeading {
+            font-family: "Basier Circle", sans-serif;
+            line-height: 1.125em;
+            letter-spacing: -0.025em;
+            color: rgb(25, 28, 31);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0px;
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        @media (min-width: 380px) {
+            .StyledHeading {
+                font-size: 2rem;
+            }
+        }
+
+        .StyledMapWrap {
+            width: 100%;
+        }
+
+        .StyledIndexMap {
+            position: relative;
+            padding: 0px;
+            margin: 0px auto;
+            max-width: 64rem;
+        }
+
+        @media (min-width: 768px) {
+            .StyledIndexMap {
+                padding: 0px 3rem;
+            }
+        }
+
+        .StyledMap {
+            padding: 2.5rem 1rem;
+            margin: 0px auto;
+            max-width: 64rem;
+        }
+
+        @media (min-width: 520px) {
+            .StyledMap {
+                padding: 2.5rem 3rem;
+            }
+        }
+
+        .StyledTitle {
+            display: block;
+            position: absolute;
+            width: 100%;
+            left: 0px;
+            top: 2rem;
+            padding-left: 1.5rem;
+            font-size: 2rem;
+            line-height: 2.5rem;
+            text-align: left;
+            letter-spacing: -0.0333333rem;
+            color: rgb(255, 255, 255);
+            margin: 0px;
+            /* font-family: "Basier Circle", sans-serif;
+            font-weight: 600;
+            line-height: 1.125em;
+            letter-spacing: -0.025em;
+            color: rgb(25, 28, 31);
+            font-size: 2rem;
+            text-align: center;
+            margin: 0px; */
+        }
+
+        @media (min-width: 1081px) {
+            .StyledTitle {
+                font-size: 2.5rem;
+            }
+        }
+
+        .StyledSubTitle {
+            display: block;
+            position: absolute;
+            width: 100%;
+            left: 0px;
+            top: 5rem;
+            line-height: 1rem;
+            text-align: left;
+            letter-spacing: 0.0625rem;
+            color: rgb(255, 255, 255);
+            text-transform: uppercase;
+            font-family: Roboto;
+            font-weight: 500;
+            font-size: 0.875rem;
+            margin: 0px;
+            padding-left: 1.5rem;
+        }
+
+        .bABRyk {
+            position: absolute;
+            left: 0px;
+            top: 7.5rem;
+            color: rgb(255, 255, 255);
+            padding: 0px 1.5rem;
+            text-align: left;
+            line-height: 1.5rem;
+            margin: 0px;
+            opacity: 0;
+            transition: opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
+        }
+
+        .joAujX {
+            position: absolute;
+            left: 1.5rem;
+            right: 1.5rem;
+            background: rgb(255, 255, 255);
+            box-shadow: rgb(25 28 31 / 45%) 0px 3px 8px;
+            border-radius: 1rem;
+            bottom: 1.5rem;
+            opacity: 0;
+            transition: opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
+        }
+
+        .cRFBOn {
+            display: inline-block;
+            padding: 0.75rem 1rem;
+            border: none;
+            border-radius: 0.75rem;
+            line-height: 1.5rem;
+            font-size: 1rem;
+            font-weight: 500;
+            letter-spacing: -0.025em;
+            cursor: pointer;
+            transition: all 0.2s ease 0s;
+            margin-bottom: 0.5rem;
+            font-family: Roboto, -apple-system, "Helvetica Neue", Helvetica, "Segoe UI", Arial, sans-serif;
+            color: rgb(25, 28, 31);
+            background-color: rgba(25, 28, 31, 0.08);
+            text-decoration: none;
+        }
+
+        .StyledFilter {
+            position: absolute;
+            left: 0px;
+            top: 0px;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.16);
+            backdrop-filter: blur(8px);
+            opacity: 0;
+            transition: opacity 450ms cubic-bezier(0.23, 1, 0.32, 1) 0s;
+        }
+
+        .StyledImg {
+            width: 18.5rem;
+            height: 22.4375rem;
+            z-index: -99;
+        }
+
+        /* @media screen and (min-width: 375px) {
+            .StyledCol {
+                padding-left: 0.625rem;
+                padding-right: 0.625rem;
+            }
+        } 
+        @media screen and (min-width: 520px) {
+            .StyledCol {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+                width: 100%;
+            }
+        } 
+
+        @media screen and (min-width: 1024px) {
+            .StyledCol {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+                width: 100%;
+            }
+        }@media (min-width: 1024px) {
+            .StyledCol {
+                max-width: 760px;
+                margin: 0px auto;
+            }
+        } */
+
+        .StyledCol {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px 0.625rem;
+            width: 100%;
+        }
+
+        .Flex {
+            box-sizing: border-box;
+            margin: 0px;
+            /* padding: 2.5rem 2rem; */
+        }
+
+        /* @media screen and (min-width: 375px) {
+            .Flex {
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+        }
+
+        @media screen and (min-width: 520px) {
+            .Flex {
+                padding: 5rem 3rem;
+            }
+        }
+
+        @media screen and (min-width: 1024px) {
+            .Flex {
+                padding: 7.5rem 3rem;
+            }
+        } */
+
+        .gDKuyF {
+            padding-top: 2rem;
+        }
+
+        @media (min-width: 1081px) {
+            .hQkgMk {
+                font-size: 3.5rem;
+            }
+        }
+
+        .hQkgMk {
+            font-family: "Basier Circle", sans-serif;
+            font-weight: 600;
+            line-height: 1.125em;
+            letter-spacing: -0.025em;
+            color: rgb(25, 28, 31);
+            font-size: 3rem;
+            margin: 0px;
+        }
+
+        .StyledPlansSubHeading {
+            color: rgb(139, 149, 158);
+            margin: 1.25rem 0px;
+            padding: 0px 2rem;
+        }
+
+        .hmePPO {
+            text-align: center;
+            padding-bottom: 1rem;
+        }
+
+        .IconBase {
+            display: block;
+            width: 24px;
+            height: 24px;
+            color: rgb(6, 102, 235);
+        }
+
+        @media (min-width: 768px) {
+            .StyledDisclaimer {
+                font-size: 1rem;
+                max-width: calc(83.3333%);
+                margin: 7.5rem auto;
+            }
+        }
+
+        .StyledDisclaimer {
+            font-size: 0.8125rem;
+            padding: 0px 1.5rem;
+            margin: 2.5px auto;
+            font-size: 1rem;
+        }
+
+        .StyledParagraph {
+            margin: 1.8rem 0px;
+            line-height: 2em;
+            color: rgb(139, 149, 158);
+        }
+
+        .StyledSection {
+            margin: 0px auto;
+            max-width: 86rem;
+        }
+
+        .StyledWrapper {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+            overflow: hidden;
+            background: 0px center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white pt-5 fixed-top">
+        <a class="navbar-brand ml-5 mr-5" href="https://www.revolut.com/">
+            <span data-testid="logo" title="Revolut" class="styles__StyledLogo-a7znz5-2 bMdRNQ">
+                <svg width="19" height="23" viewBox="0 0 19 23" xmlns="http://www.w3.org/2000/svg"
+                    data-testid="logo-svg" class="styles__StyledLetterSvg-a7znz5-0 cwPRsp">
+                    <defs>
+                        <lineargradient id="logo_letter1" x1="-3.542" x2="187.902" y1="222.275" y2="33.495"
+                            gradientTransform="matrix(.10838 0 0 .11312 -.092 -.004)" gradientUnits="userSpaceOnUse">
+                            <stop id="stop837" offset=".113" stop-color="#0D59EC"></stop>
+                            <stop id="stop839" offset=".742" stop-color="#008FE1"></stop>
+                            <stop id="stop841" offset="1" stop-color="#20AFFF"></stop>
+                        </lineargradient>
+                        <lineargradient id="logo_letter2" x1="-3.542" x2="187.902" y1="222.275" y2="33.495"
+                            gradientTransform="matrix(.10838 0 0 .11312 -.092 -.004)" gradientUnits="userSpaceOnUse">
+                            <stop id="stop844" offset=".113" stop-color="#0D59EC"></stop>
+                            <stop id="stop846" offset=".742" stop-color="#008FE1"></stop>
+                            <stop id="stop848" offset="1" stop-color="#20AFFF"></stop>
+                        </lineargradient>
+                    </defs>
+                    <g stroke="none" stroke-width="1" fill-rule="evenodd">
+                        <path id="letter_1" data-testid="logo-letter_1"
+                            d="M8.946 4.865c-.284 1.999-.511 3.682-.92 6.303 1.105-.024 3.613.416 4.165-3.166.457-2.98-1.58-3.256-3.245-3.137z">
+                        </path>
+                        <path id="letter_2"
+                            d="M18.516 19.276c.43.957-.003 2.167-.9 2.654-.515.28-1.103.54-1.69.686A14.18 14.18 0 0112.97 23c-1.593 0-3.19-.912-3.878-2.022-.178.383-.82 1.153-1.945 1.515-.711.23-1.568.507-3.357.505-1.603-.001-2.517-.728-3-1.338-.77-.97-.883-2.202-.733-3.032l.008-.04C.67 15.553 1.497 10.035 1.878 7.27l.004-.027c.104-.767.21-1.534.273-2.306.031-.389.052-.78.056-1.17.004-.369-.03-.737-.027-1.106.004-.348.06-.7.223-1.008.265-.497.75-.889 1.263-1.06C4.233.405 4.821.33 5.406.262a46.373 46.373 0 011.798-.18A30.497 30.497 0 019.404 0c1.256-.001 2.52.02 3.758.275 1.261.26 2.535.757 3.53 1.628.682.597 1.223 1.35 1.63 2.174.356.726.501 1.49.587 2.074A8.67 8.67 0 0118.79 9.3a6.903 6.903 0 01-.913 2.122c-.474.736-1.082 1.404-1.857 2.04.472 1.37 1.702 4.046 2.496 5.814zM4.41 2.8c.03.508.034 1.02.012 1.53-.022.521-.067 1.04-.125 1.558-.057.516-.126 1.03-.196 1.544l-.023.168c-.22 1.607-.452 3.212-.695 4.814-.256 1.684-.543 3.359-.83 5.036-.133.782-.432 1.784-.023 2.53.364.666 1.298.747 1.949.68 2.371-.242 2.748-.769 2.748-.769-.473-.524-.062-2.912.414-6.122h1.685l1.764 5.335s.52 1.653 1.965 1.573c1.851-.102 3.213-.525 3.409-.76-.57-.318-2.2-4.394-3.088-7.387.43-.262.847-.547 1.24-.866.537-.438 1.035-.943 1.416-1.536.274-.426.483-.895.603-1.393.063-.263.098-.538.12-.807.04-.474.025-.954-.044-1.424-.066-.452-.165-.955-.367-1.363-.375-.763-.906-1.429-1.63-1.855-1.222-.718-2.63-.855-4.003-.93a25.333 25.333 0 00-4.463.146c-.166.02-1.845.168-1.838.298z">
+                        </path>
+                    </g>
+                </svg>
+            </span>
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span></button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link mr-4" href="#">Personal <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Business</a>
+                </li>
+            </ul>
+            <ul class="navbar-nav mr-4">
+                <li class="nav-item dropdown mr-4"><a class="nav-link " href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Plans </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item"
+                            href="#">Standard</a><a class="dropdown-item" href="#">Plus</a>
+                        <a class="dropdown-item" href="#">Premium</a>
+                        <a class="dropdown-item" href="#">Metal</a>
+                        <a class="dropdown-item" href="#">Compare plans</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-4"><a class="nav-link " href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">About us </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item" href="#">About
+                            us</a>
+                        <a class="dropdown-item" href="#">Blog</a><a class="dropdown-item" href="#">Leadership</a>
+                        <a class="dropdown-item" href="#">Newsroom</a>
+                        <a class="dropdown-item" href="#">Affiliates</a>
+                        <a class="dropdown-item" href="#">Influencers</a>
+                        <a class="dropdown-item" href="#">Careers</a><a class="dropdown-item" href="#">Culture</a>
+                        <a class="dropdown-item" href="#">Diversity&Inclusion</a>
+                        <a class="dropdown-item" href="#">Contact</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown mr-4"><a class="nav-link " href="#" id="navbarDropdown" role="button"
+                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Help </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"><a class="dropdown-item" href="#">Help
+                            centre</a>
+                        <a class="dropdown-item" href="#">Community</a>
+                        <a class="dropdown-item" href="#">Security</a>
+                        <a class="dropdown-item" href="#">System Status</a>
+                        <a class="dropdown-item" href="#">Developer APIs</a>
+                    </div>
+                </li>
+            </ul>
+            <button class="btn btn-light mr-2 my-sm-0" type="submit">Sign in</button>
+            <button class="btn btn-dark mr-5 my-sm-0" type="submit">Get the App</button>
+        </div>
+    </nav>
+
+
+    <div class="container-fluid home pt-5">
+        <div class="row align-items-center ml-2 mt-5 pt-5">
+            <div class="article col-sm-12 col-md-6 mb-5 ">
+                <h1>Get more from your money</h1>
+                <p class="homep">Exchange money with no hidden fees. Buy crypto,
+                    gold and manage your money with spending analytics. Join over 12 million Revolut customers. </p>
+                <!-- <div class="StyledTextField">
+                    <div for="TextField" class="StyledInputContainer"><label for="TextField" class="StyledLabel">Phone
+                            number </label><input autocomplete="tel-national" id="TextField" name="phone" type="tel"
+                            data-testid="phone-field-input" class="StyledInput" value="">
+                        <div class="StyledBorder"></div>
+                        <div class="StyledBorderFocus"></div>
+                    </div>
+                </div> -->
+                <button class="btn btn-dark ">Get Started</button>
+                <div class="d-flex mt-4">
+                    <div class="clockIcon mr-2"><svg viewBox="0 0 24 24" size="18"
+                            class="icon-base__IconBase-sc-1efctcf-0 bGrAuP">
+                            <g fill="currentColor">
+                                <path fill="currentColor"
+                                    d="M2 12C2 6.486 6.486 2 12 2s10 4.486 10 10-4.486 10-10 10S2 17.514 2 12zm11-5a1 1 0 1 0-2 0v5.423a1 1 0 0 0 .5.866l3.83 2.211a1 1 0 0 0 1-1.732L13 11.845V7z">
+                                </path>
+                            </g>
+                        </svg></div>
+                    <p class="account pt-1">Open an account in minutes</p>
+                </div>
+            </div>
+            <div class="homepng col-sm-12 col-md-6 mb-5"><img src="./image/home.png" alt=""></div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="content d-flex flex-md-row flex-column  align-items-center justify-content-center ">
+            <div class="picture mx-5 mb-5"><img class="bgimg" src="./image/iphone_x_bg.png" alt=""><img class="homeimg"
+                    src="./image/Home-Analytics.png" alt=""></div>
+            <div class="CardText mx-4 ">
+
+                <div>
+                    <h3 class="Title">Manage your money better with spending analytics</h3>
+                    <ul class="List">
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Set budgets,
+                            get instant spending notifications,
+                            and see weekly insights to keep your spending on track </li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Connect your other bank accounts to Revolut with Open Banking and manage all your
+                            finances in one place </li>
+                    </ul>
+                </div>
+                <div class="LinkContainer">
+                    <div class="Trigger"><a href="https://www.revolut.com/best-budget-planner" color="[object Object]"
+                            class="StyledLink">Learn more about Budgeting</a><span class="Bounce"><svg color="blue"
+                                class="SvgIcon" width="21px" height="12px" viewBox="0 0 21 12" stroke-width="0"
+                                fill="inherit">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0917969 5.84215C0.0917969 5.42793 0.427583 5.09215 0.841797 5.09215H18.8418C19.256 5.09215 19.5918 5.42793 19.5918 5.84215C19.5918 6.25636 19.256 6.59215 18.8418 6.59215H0.841797C0.427583 6.59215 0.0917969 6.25636 0.0917969 5.84215Z">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14.2706 0.315129C14.5635 0.0222357 15.0384 0.0222357 15.3313 0.315129L20.1313 5.11513C20.2719 5.25578 20.351 5.44655 20.351 5.64546C20.351 5.84437 20.2719 6.03514 20.1313 6.17579L15.3313 10.9758C15.0384 11.2687 14.5635 11.2687 14.2706 10.9758C13.9777 10.6829 13.9777 10.208 14.2706 9.91513L18.5403 5.64546L14.2706 1.37579C13.9777 1.0829 13.9777 0.608022 14.2706 0.315129Z">
+                                </path>
+                            </svg></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="content d-flex align-items-center flex-md-row-reverse flex-column">
+            <div class="picture mx-5 mb-5"><img class="bgimg" src="./image/iphone_x_bg.png" alt=""><img class="homeimg"
+                    src="./image/Home-Rewards.png" alt=""></div>
+            <div class="CardText mx-4 ">
+
+                <div>
+                    <h3 class="Title">Get daily discounts and cashback</h3>
+                    <ul class="List">
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Save money every day with Rewards </li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Earn rewards you’ll actually use on travel, retail, restaurants and more </li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Unlock new offers when you use your Revolut cards</li>
+                    </ul>
+                </div>
+                <div class="LinkContainer">
+                    <div class="Trigger"><a href="https://www.revolut.com/best-budget-planner" color="[object Object]"
+                            class="StyledLink">Learn more about Rewards
+                        </a><span class="Bounce"><svg color="blue" class="SvgIcon" width="21px" height="12px"
+                                viewBox="0 0 21 12" stroke-width="0" fill="inherit">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0917969 5.84215C0.0917969 5.42793 0.427583 5.09215 0.841797 5.09215H18.8418C19.256 5.09215 19.5918 5.42793 19.5918 5.84215C19.5918 6.25636 19.256 6.59215 18.8418 6.59215H0.841797C0.427583 6.59215 0.0917969 6.25636 0.0917969 5.84215Z">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14.2706 0.315129C14.5635 0.0222357 15.0384 0.0222357 15.3313 0.315129L20.1313 5.11513C20.2719 5.25578 20.351 5.44655 20.351 5.64546C20.351 5.84437 20.2719 6.03514 20.1313 6.17579L15.3313 10.9758C15.0384 11.2687 14.5635 11.2687 14.2706 10.9758C13.9777 10.6829 13.9777 10.208 14.2706 9.91513L18.5403 5.64546L14.2706 1.37579C13.9777 1.0829 13.9777 0.608022 14.2706 0.315129Z">
+                                </path>
+                            </svg></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="content d-flex align-items-center flex-md-row flex-column">
+            <div class="picture mx-5  mb-5"><img class="bgimg" src="./image/iphone_x_bg.png" alt=""><img class="homeimg"
+                    src="./image/payments.png" alt=""></div>
+            <div class="CardText mx-4 ">
+                <div>
+                    <h3 class="Title">Send money all over the world instantly, without hidden fees</h3>
+                    <ul class="List">
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Send, request money, or split bills with friends and family instantly, whether they’re
+                            across the table or across the
+                            globe </li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Transfer money abroad in 30+ currencies with the <a
+                                href="/help/my-accounts/exchanging-money/what-foreign-exchange-rate-will-i-get"
+                                color="[object Object]" class="StyledLink">interbank exchange rate</a>, with a small
+                            0.5% fee for anything above
+                            £1,000 each month. A flat mark-up on weekends and on certain currencies may apply, it’s only
+                            fair </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="content d-flex align-items-center flex-md-row-reverse flex-column">
+            <div class="picture mx-5  mb-5"><img class="bgimg" src="./image/iphone_x_bg.png" alt=""><img class="homeimg"
+                    src="./image/vaults.png" alt=""></div>
+            <div class="CardText mx-4 ">
+                <div>
+                    <h3 class="Title">Earn daily interest on your savings</h3>
+                    <ul class="List">
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Put your money to work. Get paid daily interest on your GBP funds </li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>No minimum amounts. Deposit and withdraw your money whenever you want, with no locking
+                            period</li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Round payments and save your spare change, or make a one-off or recurring transfer.
+                            It’s up to you. This is savings made
+                            simple</li>
+                    </ul>
+                </div>
+                <div class="LinkContainer">
+                    <div class="Trigger"><a href="https://www.revolut.com/best-budget-planner" color="[object Object]"
+                            class="StyledLink">Learn more about Vaults
+
+                        </a><span class="Bounce"><svg color="blue" class="SvgIcon" width="21px" height="12px"
+                                viewBox="0 0 21 12" stroke-width="0" fill="inherit">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0917969 5.84215C0.0917969 5.42793 0.427583 5.09215 0.841797 5.09215H18.8418C19.256 5.09215 19.5918 5.42793 19.5918 5.84215C19.5918 6.25636 19.256 6.59215 18.8418 6.59215H0.841797C0.427583 6.59215 0.0917969 6.25636 0.0917969 5.84215Z">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14.2706 0.315129C14.5635 0.0222357 15.0384 0.0222357 15.3313 0.315129L20.1313 5.11513C20.2719 5.25578 20.351 5.44655 20.351 5.64546C20.351 5.84437 20.2719 6.03514 20.1313 6.17579L15.3313 10.9758C15.0384 11.2687 14.5635 11.2687 14.2706 10.9758C13.9777 10.6829 13.9777 10.208 14.2706 9.91513L18.5403 5.64546L14.2706 1.37579C13.9777 1.0829 13.9777 0.608022 14.2706 0.315129Z">
+                                </path>
+                            </svg></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div class="content d-flex align-items-center flex-md-row flex-column">
+            <div class="picture mx-5  mb-5"><img class="bgimg" src="./image/iphone_x_bg.png" alt=""><img class="homeimg"
+                    src="./image/wealth.png" alt=""></div>
+            <div class="CardText mx-4 ">
+                <div>
+                    <h3 class="Title">Buy crypto and gold in seconds</h3>
+                    <ul class="List">
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Get gold and buy crypto, no extra app needed </li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Exchange the top five cryptocurrencies into any fiat currency</li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>See crypto rates in real time, and set up price alerts</li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Up to a maximum of €15,000 per single cryptocurrency exchange and 30 exchanges per day
+                        </li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Revolut's cryptocurrency service is not regulated by the FCA</li>
+                    </ul>
+                </div>
+                <div class="LinkContainer">
+                    <div class="Trigger mb-3"><a href="https://www.revolut.com/best-budget-planner"
+                            color="[object Object]" class="StyledLink">Learn more about Cryptocurrencies
+                        </a><span class="Bounce"><svg color="blue" class="SvgIcon" width="21px" height="12px"
+                                viewBox="0 0 21 12" stroke-width="0" fill="inherit">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0917969 5.84215C0.0917969 5.42793 0.427583 5.09215 0.841797 5.09215H18.8418C19.256 5.09215 19.5918 5.42793 19.5918 5.84215C19.5918 6.25636 19.256 6.59215 18.8418 6.59215H0.841797C0.427583 6.59215 0.0917969 6.25636 0.0917969 5.84215Z">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14.2706 0.315129C14.5635 0.0222357 15.0384 0.0222357 15.3313 0.315129L20.1313 5.11513C20.2719 5.25578 20.351 5.44655 20.351 5.64546C20.351 5.84437 20.2719 6.03514 20.1313 6.17579L15.3313 10.9758C15.0384 11.2687 14.5635 11.2687 14.2706 10.9758C13.9777 10.6829 13.9777 10.208 14.2706 9.91513L18.5403 5.64546L14.2706 1.37579C13.9777 1.0829 13.9777 0.608022 14.2706 0.315129Z">
+                                </path>
+                            </svg></span></div>
+                    <div class="Trigger"><a href="https://www.revolut.com/best-budget-planner" color="[object Object]"
+                            class="StyledLink">Learn more about Commodities
+                        </a><span class="Bounce"><svg color="blue" class="SvgIcon" width="21px" height="12px"
+                                viewBox="0 0 21 12" stroke-width="0" fill="inherit">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M0.0917969 5.84215C0.0917969 5.42793 0.427583 5.09215 0.841797 5.09215H18.8418C19.256 5.09215 19.5918 5.42793 19.5918 5.84215C19.5918 6.25636 19.256 6.59215 18.8418 6.59215H0.841797C0.427583 6.59215 0.0917969 6.25636 0.0917969 5.84215Z">
+                                </path>
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M14.2706 0.315129C14.5635 0.0222357 15.0384 0.0222357 15.3313 0.315129L20.1313 5.11513C20.2719 5.25578 20.351 5.44655 20.351 5.64546C20.351 5.84437 20.2719 6.03514 20.1313 6.17579L15.3313 10.9758C15.0384 11.2687 14.5635 11.2687 14.2706 10.9758C13.9777 10.6829 13.9777 10.208 14.2706 9.91513L18.5403 5.64546L14.2706 1.37579C13.9777 1.0829 13.9777 0.608022 14.2706 0.315129Z">
+                                </path>
+                            </svg></span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <div class="content d-flex align-items-center flex-md-row-reverse flex-column">
+            <div class="picture mx-5  mb-5"><img class="bgimg" src="./image/iphone_x_bg.png" alt=""><img class="homeimg"
+                    src="./image/cards.png" alt=""></div>
+            <div class="CardText mx-4 ">
+                <div>
+                    <h3 class="Title">We're 7x better than the banks at stopping card fraud</h3>
+                    <ul class="List">
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Lost your card? Freeze and unfreeze your card easily in the app</li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>You’re in control – toggle contactless, swipe, online payments or ATM withdrawals
+                            easily </li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Our <a target="_blank"
+                                to="https://www.fstech.co.uk/fst/FStech_Awards_2020_Winners_Revealed.php"
+                                href="https://www.fstech.co.uk/fst/FStech_Awards_2020_Winners_Revealed.php"
+                                color="[object Object]" class="StyledLink">award-winning</a> anti-fraud systems keep
+                            fraudulent transactions under 0.01%, which is 7 times better <a target="_blank"
+                                to="https://nilsonreport.com/mention/407/1link/"
+                                href="https://nilsonreport.com/mention/407/1link/" color="[object Object]"
+                                class="StyledLink">than banks</a>.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container mt-5">
+        <div class="content d-flex align-items-center flex-md-row flex-column">
+            <div class="picture mx-5  mb-5"><img class="bgimg" src="./image/iphone_x_bg.png" alt=""><img class="homeimg"
+                    src="./image/exchange.png" alt=""></div>
+            <div class="CardText mx-4 ">
+                <div>
+                    <h3 class="Title">Pay like a local – get the real exchange rate</h3>
+                    <ul class="List">
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Spend abroad in over 150 currencies at the Real (interbank) exchange rates – with no
+                            hidden fees</li>
+                        <li><svg class="StyledIcon " width="14" height="10" viewBox="0 0 14 10" fill="none">
+                                <path fill-rule="evenodd" clip-rule="evenodd"
+                                    d="M5.69309 9.33356C5.30597 9.70578 4.69398 9.70578 4.30687 9.33356L0.727419 5.89178C0.330362 5.50999 0.330362 4.87464 0.727419 4.49285C1.10305 4.13167 1.6969 4.13167 2.07254 4.49285L4.99998 7.3077L11.9274 0.646699C12.3031 0.285512 12.8969 0.285512 13.2725 0.646699C13.6696 1.02848 13.6696 1.66384 13.2725 2.04562L5.69309 9.33356Z"
+                                    fill="currentColor"></path>
+                            </svg>Withdraw cash abroad without extra charges
+                        </li>
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="StyledMap jEArmX">
+        <div class="StyledMapTitle gYDoPf">
+            <h3 spacing="none" class="StyledHeading gADaZY">Join our global community and get access to a better way to
+                manage your money</h3>
+        </div>
+
+        <div class="StyledIndexMap ilwGkB">
+            <div class="StyledMapWrap cSgdLz"><img src="./image/map-mercator-35ad397d9b34164063eb7d8900bac526.png"
+                    alt="" class="StyledMap caRVLJ">
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="StyledPlansTitle hmePPO">
+            <h1 class="StyledHeading hQkgMk StyledPlansHeading gDKuyF" spacing="none">Choose
+                your plan</h1>
+            <div class="StyledPlansSubHeading hmePPO ">No surprises, just fair and honest pricing.
+                Simply choose a plan with the features that you want, or compare plans</div>
+        </div>
+
+        <div
+            class="Box Flex cxuEqD  d-flex  flex-column flex-md-row justify-content-center align-items-center flex-wrap">
+            <div
+                class="Box hDCNfz StyledCol kQSQnJ  d-flex flex-column flex-md-row justify-content-center align-items-center">
+                <div class="StyledCard hhQdKB mb-5 mr-md-5 col-12 col-md-3">
+                    <img alt="Standard" src="./image/Cards-Tiles-Standard.png" class="StyledImg jrnoye">
+                    <div class="StyledFilter cyJuBX"></div>
+                    <h3 class="StyledTitle egkfUx" spacing="none">
+                        Standard</h3>
+                    <p class="StyledSubTitle disjTO">free</p>
+                    <p class="StyledText bABRyk">Whether you're looking to save money spending abroad or
+                        sticking to your budget with our built-in budgeting, get more from your money with our
+                        Standard
+                        account.</p>
+                    <a href="https://www.revolut.com/a-radically-better-account" to="/a-radically-better-account"
+                        class="StyledButton StyledAnchorButton cRFBOn StyledButton joAujX" type="primary"
+                        color="buttons.general.color">Learn more</a>
+                </div>
+
+
+                <div class="StyledCard hhQdKB mb-5 ml-md-3 col-12 col-md-3">
+                    <img alt="Plus" src="./image/PlanTiles-Desktop-Plus.png" class="StyledImg jrnoye">
+                    <div class="StyledFilter cyJuBX"></div>
+                    <h3 class="StyledHeading hnvEgY StyledTitle egkfUx" spacing="none">
+                        Plus</h3>
+                    <p class="StyledSubTitle disjTO">£2.99/ month</p>
+                    <p class="StyledText bABRyk">Don’t let uncertain times stop you from living your best
+                        life. Upgrade to Plus to give your wallet and your confidence a boost.</p><a
+                        href="https://www.revolut.com/revolut-plus" to="/revolut-plus"
+                        class="StyledButton StyledAnchorButton cRFBOn StyledButton joAujX" type="primary"
+                        color="buttons.general.color">Learn more</a>
+                </div>
+
+            </div>
+            <div
+                class="Box hDCNfz StyledCol kQSQnJ d-flex flex-column flex-md-row justify-content-center align-items-center ">
+                <div class="StyledCard hhQdKB mb-5 mr-md-5 col-12 col-md-3">
+                    <img alt="Premium" src="./image/Cards-Tiles-Premium.png" class="StyledImg jrnoye">
+                    <div class="StyledFilter cyJuBX"></div>
+                    <h3 class="StyledHeading hnvEgY StyledTitle egkfUx" spacing="none">
+                        Premium</h3>
+                    <p class="StyledSubTitle disjTO">£6.99/ month</p>
+                    <p class="StyledText bABRyk">Get more with our Premium account: higher limits, access
+                        to Junior accounts, airport lounge access and much more.</p><a
+                        href="https://www.revolut.com/revolut-premium" to="/revolut-premium"
+                        class="StyledButton StyledAnchorButton cRFBOn StyledButton joAujX" type="primary"
+                        color="buttons.general.color">Learn more</a>
+                </div>
+
+
+                <div class="StyledCard hhQdKB  mb-5 ml-md-3 col-12 col-md-3">
+                    <img alt="Metal" src="./image/Cards-Tiles-Metal.png" class="StyledImg jrnoye">
+                    <div class="StyledFilter cyJuBX"></div>
+                    <h3 class="StyledHeading hnvEgY StyledTitle egkfUx" spacing="none">
+                        Metal</h3>
+                    <p class="StyledSubTitle disjTO">£12.99/ month</p>
+                    <p class="StyledText bABRyk">Our most powerful account offers all our Premium
+                        functionality, plus so much more.</p>
+                    <a href="https://www.revolut.com/introducing-revolut-metal" to="/introducing-revolut-metal"
+                        class="StyledButton StyledAnchorButton cRFBOn StyledButton joAujX" type="primary"
+                        color="buttons.general.color">Learn more</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+
+    <div class="Box StyledWrapper bWLkYX">
+        <div class="StyledSection gNDuHS">
+            <div class="StyledDisclaimer hHwhAR">
+                <svg viewBox="0 0 16 16" size="24" color="#0666EB" data-testid="warning-icon" class="IconBase cjepAl">
+                    <g fill="currentColor">
+                        <path fill="currentColor"
+                            d="M8.962 1.572c-.41-.763-1.514-.763-1.925 0L.13 14.41c-.388.72.14 1.59.963 1.59h13.815c.823 0 1.35-.87.962-1.59L8.962 1.572zM7 13a1 1 0 1 1 2 0 1 1 0 0 1-2 0zm1-2.5a.8.8 0 0 1-.8-.8V6.3a.8.8 0 1 1 1.6 0v3.4a.8.8 0 0 1-.8.8z">
+                        </path>
+                    </g>
+                </svg>
+                <p class="StyledParagraph PxClH"><strong>Capital at risk.</strong></p>
+                <p class="StyledParagraph PxClH">This stock trading platform is facilitated by Revolut
+                    Trading. Neither Revolut nor Revolut Trading provides investment advice and individual investors
+                    should make their own decisions or seek professional independent advice if they are unsure as to the
+                    suitability/appropriateness of any investment for their individual circumstances or needs. The value
+                    of investments can go up as well as down and you may receive less than your original investment or
+                    lose the value of your entire initial investment. Past performance is not a reliable indicator of
+                    future results. Currency rate fluctuations can adversely impact the overall returns on your original
+                    investment. Learn more by reading our full <a href="https://www.revolut.com/legal/trading"
+                        color="[object Object]" class="StyledLink eDvWtb">Risk Disclosure</a> and our <a
+                        aria-current="page" href="https://www.revolut.com/" color="[object Object]"
+                        class="StyledLink eDvWtb">Trading FAQ</a>.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript  -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS  -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
